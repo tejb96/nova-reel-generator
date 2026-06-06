@@ -4,6 +4,14 @@ module "cdn" {
 
   default_root_object = "index.html"
 
+  origin_access_control = {
+    s3 = {
+      description      = "OAC for private S3 origins"
+      origin_type      = "s3"
+      signing_behavior = "always"
+      signing_protocol = "sigv4"
+    }
+  }
 
   origin = {
     frontend = {
@@ -72,8 +80,7 @@ module "cdn" {
   ]
   restrictions = {
     geo_restriction = {
-      restriction_type = "whitelist"
-      locations        = ["CA"]
+      restriction_type = "none"
     }
   }
   viewer_certificate = {

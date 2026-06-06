@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Reel Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Nova Reel Generator</h1>
+        <p class="subtitle">Create 720p videos from text with Amazon Bedrock Nova Reel</p>
+      </header>
+
+      <form id="generate-form">
+        <label for="prompt">Video prompt</label>
+        <textarea
+          id="prompt"
+          name="prompt"
+          rows="4"
+          maxlength="512"
+          placeholder="A robot chef makes sushi in space, cinematic style"
+          required
+        ></textarea>
+        <div class="actions">
+          <button type="submit" id="submit-btn">Generate Video</button>
+          <span id="char-count">0 / 512</span>
+        </div>
+      </form>
+
+      <section id="status-panel" class="hidden">
+        <p id="status-message">Starting generation...</p>
+        <div id="spinner" class="spinner hidden" aria-hidden="true"></div>
+      </section>
+
+      <section id="error-panel" class="hidden error" role="alert"></section>
+
+      <section id="video-panel" class="hidden">
+        <h2>Generated video</h2>
+        <video id="result-video" controls playsinline></video>
+      </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,20 +1,3 @@
-locals {
-  cloudfront_buckets = {
-    frontend = {
-      bucket = module.frontend_bucket.s3_bucket_id
-      arn    = module.frontend_bucket.s3_bucket_arn
-    }
-    thumbnail = {
-      bucket = module.thumbnail_bucket.s3_bucket_id
-      arn    = module.thumbnail_bucket.s3_bucket_arn
-    }
-    video = {
-      bucket = module.video_bucket.s3_bucket_id
-      arn    = module.video_bucket.s3_bucket_arn
-    }
-  }
-}
-
 module "video_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "5.14.0"
